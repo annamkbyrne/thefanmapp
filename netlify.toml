@@ -1,0 +1,13 @@
+# Netlify configuration file.
+# Netlify reads this automatically when it builds and deploys the site.
+
+[build]
+  # The folder with our HTML, CSS, and JS. Netlify serves these files as-is.
+  publish = "public"
+
+  # The folder that holds our serverless functions.
+  functions = "netlify/functions"
+
+[functions]
+  # Bundle functions with esbuild (fast, and works with plain Node files).
+  node_bundler = "esbuild"

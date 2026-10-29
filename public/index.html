@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Makes the page scale correctly on phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Affirmations</title>
+    <meta name="description" content="A daily dose of inspiration, powered by ZenQuotes." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="title">Daily Affirmations</h1>
+
+      <!-- The card that holds the quote -->
+      <section class="card">
+        <!-- aria-live="polite" lets screen readers announce new quotes -->
+        <blockquote class="quote-block" aria-live="polite">
+          <p id="quote" class="quote">Loading your affirmation…</p>
+          <p id="author" class="author"></p>
+        </blockquote>
+
+        <button id="new-quote-btn" class="button" type="button">New quote</button>
+
+        <!-- Shown only if something goes wrong -->
+        <p id="error" class="error" hidden></p>
+      </section>
+
+      <!-- Credit link required by the ZenQuotes free tier -->
+      <footer class="footer">
+        <a href="https://zenquotes.io/" target="_blank" rel="noopener">Quotes provided by ZenQuotes</a>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
