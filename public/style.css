@@ -1,0 +1,145 @@
+/* ===== Colors and fonts used across the page ===== */
+:root {
+  --bg-top: #fdf6ec;       /* warm cream */
+  --bg-bottom: #f6d9c4;    /* soft peach */
+  --card-bg: #ffffff;
+  --text: #3d2c29;         /* deep warm brown */
+  --muted: #8a6f66;        /* lighter brown for the author */
+  --accent: #e07a5f;       /* terracotta */
+  --accent-dark: #c9654b;
+  --error: #b3261e;
+}
+
+/* Make width/height include padding and borders (easier sizing) */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+}
+
+/* ===== Layout: center everything on the page ===== */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.title {
+  margin: 0 0 1.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 6vw, 3rem); /* grows with screen size, within limits */
+  font-weight: normal;
+  text-align: center;
+}
+
+/* ===== The quote card ===== */
+.card {
+  width: 100%;
+  max-width: 640px;
+  padding: 2.5rem 2rem;
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(61, 44, 41, 0.12);
+  text-align: center;
+}
+
+.quote-block {
+  margin: 0 0 2rem;
+}
+
+.quote {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  line-height: 1.5;
+  transition: opacity 0.3s ease;
+}
+
+/* Decorative curly quotes around the text */
+.quote::before {
+  content: "\201C"; /* “ */
+  color: var(--accent);
+}
+.quote::after {
+  content: "\201D"; /* ” */
+  color: var(--accent);
+}
+
+.author {
+  margin: 1rem 0 0;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+/* Fade the quote slightly while a new one is loading */
+.card.loading .quote,
+.card.loading .author {
+  opacity: 0.4;
+}
+
+/* ===== Button ===== */
+.button {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px; /* pill shape */
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.button:hover {
+  background: var(--accent-dark);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+/* Visible outline for keyboard users */
+.button:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.error {
+  margin: 1rem 0 0;
+  color: var(--error);
+}
+
+/* ===== Footer credit ===== */
+.footer {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: var(--muted);
+}
+
+.footer a:hover {
+  color: var(--text);
+}
+
+/* ===== Small screens: a little less padding ===== */
+@media (max-width: 480px) {
+  .card {
+    padding: 2rem 1.25rem;
+  }
+}
